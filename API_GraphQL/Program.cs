@@ -30,7 +30,7 @@ builder.Services.AddCors(opt =>
 builder.Services.AddGraphQLServer()
     .RegisterDbContext<AdventureWorks2017Context>(DbContextKind.Synchronized)
     .AddQueryType<Query>()
-    //.AddMutationType<Mutation>()
+    .AddMutationType<Mutation>()
     .AddProjections().AddFiltering().AddSorting();
 
 var app = builder.Build();

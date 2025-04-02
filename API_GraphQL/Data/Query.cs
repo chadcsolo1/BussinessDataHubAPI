@@ -18,6 +18,7 @@ namespace API_GraphQL.Data
         [UseSorting]
         public async Task<SalesPerson> GetSalesPerson([Service(ServiceKind.Synchronized)] AdventureWorks2017Context _context, int Id)
         {
+            
             return await _context.SalesPeople.Include(x => x.SalesPersonQuotaHistories).Include(x => x.SalesOrderHeaders)
                         .Where(x => x.BusinessEntityId == Id).FirstOrDefaultAsync();
         }
